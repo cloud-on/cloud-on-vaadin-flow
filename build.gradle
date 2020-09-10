@@ -31,4 +31,4 @@ dependencies {
 }
 
 //jrepository.radiance.mn рүү хадгална
-apply from: '../.gradle/publish.gradle'
+//apply from: '../.gradle/publish.gradle'
