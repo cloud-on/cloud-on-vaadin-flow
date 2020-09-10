@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+    }
+}
+
+group = 'cloud.on'
+version = '1.0'
+
+apply plugin: "idea"
+apply plugin: "org.grails.grails-plugin"
+apply plugin: "org.grails.grails-plugin-publish"
+
+repositories {
+    maven { url "https://repo.grails.org/grails/core" }
+    maven {
+        credentials { username = "tseveen@gmail.com"; password = "tseveen@gmail.com" }
+        url 'http://jrepository.radiance.mn/artifactory/libs-release-local' //libs-snapshot-local'
+    }
+}
+
+dependencies {
+    provided "org.grails:grails-dependencies"
+    compile "org.grails:grails-core"
+    compileOnly "com.vaadin:vaadin-spring:+", {
+        exclude group: 'io.swagger.codegen.v3'
+    }
+}
+
+//jrepository.radiance.mn рүү хадгална
+apply from: '../.gradle/publish.gradle'
